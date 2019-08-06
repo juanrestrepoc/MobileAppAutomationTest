@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
         command: pwd
-      -run:
+      - run:
         command: ls -a
       - restore_cache:
           working_directory: ~/code/AndroidDemo
