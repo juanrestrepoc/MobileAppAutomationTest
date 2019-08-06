@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/project/AndroidDemo
     docker:
       - image: circleci/android:api-26-alpha
     environment:
@@ -9,15 +8,13 @@ jobs:
     steps:
       - checkout
       - run:
-          command: pwd
-      - run:
-          command: ls -a
+          command: pwd && ls -a
       - restore_cache:
-          working_directory: ~/code/AndroidDemo
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          working_directory: ~/code
+          key: jars-{{ checksum "AndroidDemo/build.gradle" }}-{{ checksum  "AndroidDemo/app/build.gradle" }}
       - run:
           name: Chmod permissions
-          working_directory: ~/code/AndroidDemo
+          working_directory: ~/code
           command: sudo chmod +x ./gradlew
       - run:
           name: Download Dependencies
