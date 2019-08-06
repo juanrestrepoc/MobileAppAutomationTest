@@ -4,9 +4,9 @@ jobs:
     working_directory: ~/AndroidDemo
     docker:
       - image: circleci/android:api-26-alpha
-  environment:
+    environment:
       JVM_OPTS: -Xmx3200m
-  steps:
+    steps:
       - checkout
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
