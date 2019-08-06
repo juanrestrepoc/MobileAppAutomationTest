@@ -19,6 +19,9 @@ jobs:
           name: Download Dependencies
           working_directory: ~/code/AndroidDemo
           command: ./gradlew androidDependencies
+      - run:
+          name: Accept licenses
+          command: yes | sdkmanager --licenses || true
       - save_cache:
           paths:
             - ~/AndroidDemo/.gradle
