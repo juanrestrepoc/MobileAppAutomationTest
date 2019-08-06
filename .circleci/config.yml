@@ -9,9 +9,9 @@ jobs:
     steps:
       - checkout
       - run:
-        command: pwd
+          command: pwd
       - run:
-        command: ls -a
+          command: ls -a
       - restore_cache:
           working_directory: ~/code/AndroidDemo
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
