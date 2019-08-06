@@ -11,7 +11,7 @@ jobs:
       - run:
           command: pwd && ls -a
       - restore_cache:
-          key: jars-{{ checksum "AndroidDemo/build.gradle" }}-{{ checksum  "AndroidDemo/app/build.gradle" }}
+          key: jars-{{ checksum "AndroidDemo/build.gradle" }}
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./AndroidDemo/gradlew
